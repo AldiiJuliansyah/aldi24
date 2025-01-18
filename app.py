@@ -134,7 +134,7 @@ elif page == "Data Pengguna":
             st.error("Kolom 'age' atau 'predicted_cost' tidak ditemukan dalam dataframe.")
 
     except FileNotFoundError:
-        st.error("File 'regression.csv' tidak ditemukan. Pastikan file tersebut ada di direktori yang sama dengan aplikasi.")
+        st.error("File 'Regression.csv' tidak ditemukan. Pastikan file tersebut ada di direktori yang sama dengan aplikasi.")
     except Exception as e:
         st.error(f"Terjadi kesalahan saat memuat data: {e}")
 
