@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # App Title
-st.markdown("<h1 style='text-align: center; color: #ffffff;'>Prediksi Biaya Kesehatan</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #4CAF50;'>Prediksi Biaya Kesehatan</h1>", unsafe_allow_html=True)
 
 # Sidebar for navigation with custom CSS for white background
 st.markdown("""
@@ -24,7 +24,7 @@ page = st.sidebar.radio("Pilih Halaman:", ["Input Data", "Hasil Prediksi", "Tent
 
 if page == "Input Data":
     # Main Section: Input + Prediction
-    st.markdown("<h2 style='text-align: center; color: #ffffff;'>Silahkan Masukan Data</h2>", unsafe_allow_html=True)
+    st.markdown("<h2 style='text-align: center; color: #4CAF50;'>📂Silahkan Masukan Data</h2>", unsafe_allow_html=True)
 
     # Layout Grid: 2 columns for input fields
     col1, col2 = st.columns(2)
