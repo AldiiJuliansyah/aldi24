@@ -112,8 +112,8 @@ elif page == "Data Pengguna":
 
     # Load the regression data from CSV
     try:
-        regression_data = pd.read_csv('regression.csv')
-        st.write("Data dari file regression.csv:")
+        regression_data = pd.read_csv('Regression.csv')
+        st.write("Data dari file Regression.csv:")
         st.dataframe(regression_data)
 
         # Create a scatter plot for Age vs Predicted Cost
