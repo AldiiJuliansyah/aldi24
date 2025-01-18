@@ -116,6 +116,23 @@ elif page == "Data Pengguna":
         st.write("Data dari file regression.csv:")
         st.dataframe(regression_data)
 
+        # Create a scatter plot for Age vs Predicted Cost
+        if 'age' in regression_data.columns and 'predicted_cost' in regression_data.columns:
+            scatter_fig = px.scatter(
+                regression_data,
+                x='age',
+                y='predicted_cost',
+                color='bmi',  # Assuming 'bmi' is a column in the CSV
+                size='bmi',   # Size of the points based on BMI
+                hover_name='bmi',  # Show BMI on hover
+                title="Hubungan Usia dan Biaya Kesehatan yang Diprediksi",
+                labels={'age': 'Usia (Tahun)', 'predicted_cost': 'Biaya Kesehatan yang Diprediksi'},
+                color_continuous_scale=px.colors.sequential.Viridis
+            )
+            st.plotly_chart(scatter_fig)
+        else:
+            st.error("Kolom 'age' atau 'predicted_cost' tidak ditemukan dalam dataframe.")
+
     except FileNotFoundError:
         st.error("File 'regression.csv' tidak ditemukan. Pastikan file tersebut ada di direktori yang sama dengan aplikasi.")
     except Exception as e:
@@ -134,21 +151,6 @@ elif page == "Data Pengguna":
     ax.set_xlabel('Biaya Medis')
     ax.set_ylabel('Frekuensi')
     st.pyplot(fig)
-
-    # Create a scatter plot for Age vs Predicted Cost
-    if 'age' in regression_data.columns and 'predicted_cost' in regression_data.columns:
-        scatter_fig = px.scatter(
-            regression_data,
-            x='age',
-            y='predicted_cost',
-            color='bmi',  # Assuming 'bmi' is a column in the CSV
-            size='bmi',   # Size of the points based on BMI
-            hover_name='bmi',  # Show BMI on hover
-            title="Hubungan Usia dan Biaya Kesehatan yang Diprediksi",
-            labels={'age': 'Usia (Tahun)', 'predicted_cost': 'Biaya Kesehatan yang Diprediksi'},
-            color_continuous_scale=px.colors.sequential.Viridis
-        )
-        st.plotly_chart(scatter_fig)
 
 # Footer
 st.markdown("""
